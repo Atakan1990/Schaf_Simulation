@@ -71,8 +71,6 @@ public class WalkState : AState
     public override void ExitState()
     {
         Debug.Log("WalkState is left!");
-
-        m_character.m_MeshRenderer.material.color = Color.white;
     }
 
     private Vector3 RandomPosition(Character _character)

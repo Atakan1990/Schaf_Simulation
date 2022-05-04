@@ -14,8 +14,6 @@ public class FollowState : AState
     public override void EnterState()
     {
         Debug.Log("FollowState is entered!");
-
-        m_character.m_MeshRenderer.material.color = Color.red;
     }
 
     public override E_States UpdateState()
@@ -65,6 +63,5 @@ public class FollowState : AState
     public override void ExitState()
     {
         Debug.Log("FollowState is left!");
-        m_character.m_MeshRenderer.material.color = Color.white;
     }
 }

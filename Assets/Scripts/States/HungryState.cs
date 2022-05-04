@@ -15,8 +15,6 @@ public class HungryState : AState
     public override void EnterState()
     {
         Debug.Log("HungryState is entered!");
-
-        m_character.m_MeshRenderer.material.color = Color.yellow;
     }
 
     public override E_States UpdateState()
@@ -65,7 +63,5 @@ public class HungryState : AState
     public override void ExitState()
     {
         Debug.Log("HungryState is left!");
-
-        m_character.m_MeshRenderer.material.color = Color.white;
     }
 }
