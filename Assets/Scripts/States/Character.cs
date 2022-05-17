@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
     private bool m_isStarving = false; // HungryState
 
     [SerializeField]
-    public Transform m_Shepherd;
+    public GameObject m_Shepherd;
 
     [SerializeField]
     private float m_hungerPerSecond = 0.2f;
@@ -54,6 +54,8 @@ public class Character : MonoBehaviour
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
         m_MeshRenderer = GetComponentInChildren<MeshRenderer>();
         m_Fsm = new FiniteStateMachine(this, E_States.WALKSTATE);
+
+        m_Shepherd = GameObject.Find("ShepherdAgent");
     }
 
     private void Start()
@@ -138,10 +140,5 @@ public class Character : MonoBehaviour
         {
             m_isSleeping = true;
         }
-    }
-
-    private void OnDestroy()
-    {
-        //TODO partikelsystem instanzieren 
     }
 }

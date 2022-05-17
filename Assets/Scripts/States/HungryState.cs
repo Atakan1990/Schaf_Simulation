@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class HungryState : AState
 {
-    // Variable HungryState
-    // ---
-
     public HungryState(Character _character) : base(_character)
     {
 
