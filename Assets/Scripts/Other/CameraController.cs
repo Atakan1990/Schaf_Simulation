@@ -17,6 +17,10 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Vector2 m_mapLimit = new Vector2(20f, 25f);
 
+    /// <summary>
+    /// Überprüft ob die Maus am Rand des Bildschirms ist oder einer der Taste gedrückt wurde
+    /// um die Anzeige dementsprechend in diese Richtung zu bewegen
+    /// </summary>
     void Update()
     {
         // Kamera Position der lokalen Vector3 zuweisen zum berechnen
@@ -38,7 +42,7 @@ public class CameraController : MonoBehaviour
         {
             cameraPosition.x += m_cameraSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.A) || Input.mousePosition.y <= m_BorderThickness)
+        if (Input.GetKey(KeyCode.A) || Input.mousePosition.x <= m_BorderThickness)
         {
             cameraPosition.x -= m_cameraSpeed * Time.deltaTime;
         }
@@ -55,6 +59,5 @@ public class CameraController : MonoBehaviour
 
         // Neu berechnete lokale Vector3 der Kamera zuweisen
         this.transform.position = cameraPosition;
-
     }
 }

@@ -1,6 +1,15 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Der Charakter selbst bzw. der Agent der verschiedene Werte annehmen kann und dementsprechend zu den
+/// verschiedenen States wechselt - Eine KI die sogesehen ein Schaf simuliert das
+/// Den Hirten verfolgen kann
+/// Hunger bekommen und essen kann
+/// Müde werden kann
+/// Im Gehege seine Runden drehen kann
+/// und friedlich im Gelände spazieren kann
+/// </summary>
 public class Character : MonoBehaviour
 {
     // Properties
@@ -71,19 +80,22 @@ public class Character : MonoBehaviour
         GetTired();
     }
 
+    /// <summary>
+    /// Überprüft jeweils die verschiedenen Situation von OnTrigger
+    /// Je nach Enter Stay Exit haben die Werte ein Einfluss auf die States
+    /// </summary>
+    #region --- OnTrigger ---
     public void OnTriggerEnter(Collider _other)
     {
         // Shepherd
         if (_other.CompareTag("Shepherd"))
         {
-            Debug.Log("OnTriggerEnter: Shepherd");
             m_isSheperdClose = true;
         }
 
         // FenceZone
         if (_other.CompareTag("FenceZone"))
         {
-            Debug.Log("OntriggerEnter: FenceZone");
             m_isInFenceZone = true;
         }
     }
@@ -92,7 +104,6 @@ public class Character : MonoBehaviour
     {
         if (_other.CompareTag("Shepherd"))
         {
-            Debug.Log("OnTriggerStay: Shepherd");
         }
     }
 
@@ -101,18 +112,20 @@ public class Character : MonoBehaviour
         // Shepherd
         if (_other.CompareTag("Shepherd"))
         {
-            Debug.Log("OnTriggerExit: Shepherd");
             m_isSheperdClose = false;
         }
 
         // FenceZone
         if (_other.CompareTag("FenceZone"))
         {
-            Debug.Log("OntriggerExit: FenceZone");
             m_isInFenceZone = false;
         }
     }
+    #endregion --- OnTrigger ---
 
+    /// <summary>
+    /// Überprüft ob der Agent hungrig ist
+    /// </summary>
     public void GetHungry()
     {
         m_stomachPoints -= m_hungerPerSecond * Time.deltaTime;
@@ -132,6 +145,9 @@ public class Character : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Überprüft ob der Agent erschöpft ist
+    /// </summary>
     public void GetTired()
     {
         m_tiredPoints -= m_tiredPerSecond * Time.deltaTime;

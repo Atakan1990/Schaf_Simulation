@@ -7,29 +7,27 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: S_Mat_Water_4
-  m_Shader: {fileID: -6465566751694194690, guid: 90be46b56ffbaaf4eae678b2df8003b6, type: 3}
-  m_ShaderKeywords: 
+  m_Name: S_Mat_Holo_Brown
+  m_Shader: {fileID: -6465566751694194690, guid: 7d91bda0c2fcbd54e969e490265e4f2a, type: 3}
+  m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT _ENABLE_FOG_ON_TRANSPARENT _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap:
     MotionVector: User
+    RenderType: Transparent
   disabledShaderPasses:
   - MOTIONVECTORS
   - TransparentDepthPrepass
   - TransparentDepthPostpass
   - TransparentBackface
+  - RayTracingPrepass
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_2d3e79f780c948698cb2772fe56d5c6f:
-        m_Texture: {fileID: 2800000, guid: 3511be4bdbde06a458dc1ded8e40a86e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_819453955b254bddad2eb00e13865e5b:
-        m_Texture: {fileID: 2800000, guid: 10cb9fa4a69f45944991608b91d0a623, type: 3}
+    - Texture2D_ca8b7a7748c8484e97fd113c07aea19d:
+        m_Texture: {fileID: 2800000, guid: 8992492b1bec26b409a3dec8eeefcb00, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -45,14 +43,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_157f850e71e1421fbf3a09490ff6e930: 0.0075
-    - Vector1_472d87ff83ea4d45a7aec908b5995b22: 1.5
-    - Vector1_700921ae073b496ab23837334663ef04: 2
-    - Vector1_8ed6ab4712124d46bb404ecbd9bf8062: 0.01
-    - Vector1_9296e8a9fef047e694b6a09d7be8ea88: 0.01
+    - Vector1_15a47eab2cb4475abcff4bd16e1e8f34: 2
+    - Vector1_b83da3b5c589489890a411ec10512e99: -0.25
     - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 0
-    - _AlphaDstBlend: 0
+    - _AlphaDstBlend: 10
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
@@ -62,11 +57,16 @@ Material:
     - _DepthOffsetEnable: 0
     - _DoubleSidedEnable: 0
     - _DoubleSidedNormalMode: 2
-    - _DstBlend: 0
-    - _EnableBlendModePreserveSpecularLighting: 0
+    - _DstBlend: 10
+    - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _OpaqueCullMode: 2
-    - _RenderQueueType: 1
+    - _RayTracing: 0
+    - _ReceivesSSR: 1
+    - _ReceivesSSRTransparent: 0
+    - _RefractionModel: 0
+    - _RenderQueueType: 4
+    - _RequireSplitLighting: 0
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 0
@@ -78,7 +78,8 @@ Material:
     - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskGBuffer: 14
     - _StencilWriteMaskMV: 40
-    - _SurfaceType: 0
+    - _SupportDecals: 1
+    - _SurfaceType: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -87,18 +88,18 @@ Material:
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
-    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
-    - Color_02b89eb01640477c86dc389e764b6f7b: {r: 0, g: 0.34439436, b: 0.8113207, a: 1}
-    - Color_55f9486f8f9f4a3797701b17f97f6ada: {r: 1, g: 1, b: 1, a: 1}
-    - Color_c3d6393abb78448ca159935d140e4114: {r: 0, g: 0.7228422, b: 1, a: 0}
+    - Color_088ae614b0114e108b1972b8a7ecc1d0: {r: 0.20178513, g: 0.057064462, b: 0, a: 0}
+    - Color_89be2b4f5bd24d3b8dfaa3506a5683c7: {r: 4, g: 4, b: 4, a: 1}
+    - Vector2_6943ef634537474081b3c110705272ed: {r: 2, g: 2, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &3295321603954993836
+--- !u!114 &5548991383270626396
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

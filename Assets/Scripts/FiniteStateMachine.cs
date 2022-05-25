@@ -1,7 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Dient zur Verwaltung der States die in der Liste vorhanden sind
+/// </summary>
 public class FiniteStateMachine
 {
     Character m_character;
@@ -9,7 +11,11 @@ public class FiniteStateMachine
     AState m_currentState;
     Dictionary<E_States, AState> m_stateDictionary = new Dictionary<E_States, AState>();
     
-
+    /// <summary>
+    /// Weißt zur Dictionary zum jeweiligen Index das Enum zu und zum Key die jeweilige State Klasse
+    /// </summary>
+    /// <param name="_character"></param>
+    /// <param name="_initState"></param>
     public FiniteStateMachine(Character _character, E_States _initState)
     {
         m_character = _character;
@@ -23,7 +29,9 @@ public class FiniteStateMachine
         m_currentState = m_stateDictionary[_initState];
     }
 
-
+    /// <summary>
+    /// Überprüft ob State gehalten oder gewechselt wird
+    /// </summary>
     public void Update()
     {
         E_States state = m_currentState.UpdateState();

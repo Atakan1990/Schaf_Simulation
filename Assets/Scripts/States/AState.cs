@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Die Basis Klasse wovon alle anderen States erben um verschieden Zustände in der KI auszulösen
+/// </summary>
 public abstract class AState
 {
     protected Character m_character;

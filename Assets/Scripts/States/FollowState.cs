@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Dieser Zustand wird ausgelöst wenn der Agent im Raum vom Shepherd ist
+/// Der Agent läuft solange dem Shepherd hinterher bis dieser seinen State wechselt
+/// </summary>
 public class FollowState : AState
 {
     // Variable FollowState
@@ -11,15 +15,13 @@ public class FollowState : AState
 
     }
 
-    public override void EnterState()
-    {
-        Debug.Log("FollowState is entered!");
-    }
-
+    /// <summary>
+    /// Führt den aktuellen State aus bis die Bedingung zum nächsten State ausgelöst wird
+    /// dieser State wird dann beendet und der nächste per return anschließend ausgeführt
+    /// </summary>
+    /// <returns>E_States</returns>
     public override E_States UpdateState()
     {
-        Debug.Log("FollowState in update process");
-
         #region --- INHALT CODE für FollowState ---
 
         // Wenn der Spieler NICHT tot ist UND
@@ -58,10 +60,5 @@ public class FollowState : AState
         }
 
         return E_States.SAME;
-    }
-
-    public override void ExitState()
-    {
-        Debug.Log("FollowState is left!");
     }
 }

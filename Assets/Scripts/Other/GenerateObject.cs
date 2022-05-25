@@ -1,7 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Generiert auf einer X Z Fläche eine Anzahl an Objekten
+/// Wie groß die Fläche sein soll und wie viele Objekte generiert werden sollen
+/// hängt von den jeweiligen Einstellungen ab
+/// </summary>
 public class GenerateObject : MonoBehaviour
 {
     [SerializeField]
@@ -18,9 +21,9 @@ public class GenerateObject : MonoBehaviour
     private int m_rangeX;
     private int m_rangeZ;
 
-    //private int m_noise = Mathf.PerlinNoise(0,1);
-
-
+    /// <summary>
+    /// Führt zum Start die Generierung aus welche auf die Werte basieren
+    /// </summary>
     void Start()
     {
         for (int i = 0; i < m_quantity; i++)
@@ -29,9 +32,6 @@ public class GenerateObject : MonoBehaviour
             m_rangeZ = Random.Range(-m_spawnRangeZ, m_spawnRangeZ);
 
             Instantiate(m_prefabObject, this.transform.position + new Vector3(m_rangeX * m_gapMultiply, 0, m_rangeZ * m_gapMultiply), this.transform.rotation);
-
-            // Instantiate(m_prefabObject, transform.position = Random.insideUnitSphere * 15, this.transform.rotation);
-            
         }
     }
 }

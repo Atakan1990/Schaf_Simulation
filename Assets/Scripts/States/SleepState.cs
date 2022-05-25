@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Dieser Zustand wird ausgelöst wenn der Agent erschöpft/müde ist und m_tiredPoints den Wert unter 0 erreicht hat
+/// </summary>
 public class SleepState : AState
 {
     private float m_tiredPoints = 0f;
@@ -10,17 +13,21 @@ public class SleepState : AState
 
     }
 
+    /// <summary>
+    /// Beim Start/Beitritt des States wird der Agent blau gefärbt um es visuell zu zeigen
+    /// </summary>
     public override void EnterState()
     {
-        Debug.Log("SleepState is entered!");
-
         m_character.m_MeshRenderer.material.color = Color.blue;
     }
 
+    /// <summary>
+    /// Führt den aktuellen State aus bis die Bedingung zum nächsten State ausgelöst wird
+    /// dieser State wird dann beendet und der nächste per return anschließend ausgeführt
+    /// </summary>
+    /// <returns>E_States</returns>
     public override E_States UpdateState()
     {
-        Debug.Log("SleepState in update process");
-
         Sleep();
 
         // INHALT CODE für SleepState
@@ -29,40 +36,20 @@ public class SleepState : AState
             return E_States.WALKSTATE;
         }
 
-
-        //// FollowState
-        //if (m_character.IsSheperdClose == true)
-        //{
-        //    return E_States.FOLLOWSTATE;
-        //}
-        //// FenceZoneState
-        //else if (m_character.IsInFence)
-        //{
-        //    return E_States.FENCEZONESTATE;
-        //}
-        //// HungryState
-        //else if (m_character.IsStarving == true)
-        //{
-        //    return E_States.HUNGRYSTATE;
-        //}
-        //// WalkState
-        //else if (m_character.IsSheperdClose == false &&
-        //         m_character.IsInFence == false &&
-        //         m_character.IsStarving == false)
-        //{
-        //    return E_States.WALKSTATE;
-        //}
-
         return E_States.SAME;
     }
 
+    /// <summary>
+    /// Beim verlassen des States wird der Agent weiß gefärbt um visuell feedback zu geben
+    /// </summary>
     public override void ExitState()
     {
-        Debug.Log("SleepState is left!");
-
         m_character.m_MeshRenderer.material.color = Color.white;
     }
 
+    /// <summary>
+    /// Simuliert den Schlaf/Relax Phase wo sich der Agent ausruht
+    /// </summary>
     public void Sleep()
     {
         m_tiredPoints += m_tiredPerSecond * Time.deltaTime;

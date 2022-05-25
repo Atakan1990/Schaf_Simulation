@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -35,6 +33,9 @@ public class PathWalker : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Weist den nächsten Node zu bis der höchste Wert erreicht wurde ansonsten setze den Wert auf 0 zurück
+    /// sodass der Agent durchgehend eine Routine läuft
     private void GoToNextNode()
     {
         m_agent.SetDestination(m_path.GetNodePositionByIndex(m_currentNodeIndex));

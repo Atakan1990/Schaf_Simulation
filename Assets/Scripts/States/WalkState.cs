@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Dieser Zustand wird ausgelöst wenn keiner der anderen States ausgelöst wird
+/// und der Agent in kleinen Zeitabständen immer wieder eine nue kurze Strecke spaziert
+/// </summary>
 public class WalkState : AState
 {
     // Variable WalkState
@@ -16,15 +20,13 @@ public class WalkState : AState
 
     }
 
-    public override void EnterState()
-    {
-        Debug.Log("WalkState is entered!");
-    }
-
+    /// <summary>
+    /// Führt den aktuellen State aus bis die Bedingung zum nächsten State ausgelöst wird
+    /// dieser State wird dann beendet und der nächste per return anschließend ausgeführt
+    /// </summary>
+    /// <returns>E_States</returns>
     public override E_States UpdateState()
     {
-        Debug.Log("WalkState in update process");
-
         #region --- INHALT CODE für WALKSTATE ---
 
         // Zählt die Zeit hoch
@@ -64,15 +66,15 @@ public class WalkState : AState
             return E_States.HUNGRYSTATE;
         }
 
-
         return E_States.SAME;
     }
 
-    public override void ExitState()
-    {
-        Debug.Log("WalkState is left!");
-    }
-
+    /// <summary>
+    /// Wählt zufällig im Radius vom Agent eine Position aus
+    /// die er als neues Ziel ansteuert
+    /// </summary>
+    /// <param name="_character"></param>
+    /// <returns>Vector3 Position</returns>
     private Vector3 RandomPosition(Character _character)
     {
         // Nimmt eine zufällige Position im Radius von 1 Meter

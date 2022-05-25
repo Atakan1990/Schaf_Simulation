@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
         m_navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
+    /// <summary>
+    /// Überprüft ob der Spieler die Linke Maustaste gedrückt hat
+    /// damit sich der Agent im NavMesh bewegt
+    /// </summary>
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
