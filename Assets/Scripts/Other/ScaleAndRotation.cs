@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class ScaleAndRotation : MonoBehaviour
 {
-    Vector3 m_scaleChange;
+    private Vector3 m_scaleChange;
 
     /// <summary>
     /// Bei jeder Aktivierung oder Geneierung wird das Objekt zufällig rotiert als auch skalliert
